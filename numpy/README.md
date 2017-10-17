@@ -8,7 +8,7 @@ The function zeros creates an array full of zeros, the function ones creates an
 array full of ones, and the function empty creates an array whose initial content 
 is random and depends on the state of the memory. By default, the dtype of the 
 created array is float64.<br/>
-通过zerons,ones,empty可以忽略初始化，自动添加相应得到数据<br/>
+通过zeros,ones,empty可以忽略初始化，自动添加相应得到数据,默认dtype是float64
 range可以从start,stop,step,dtype创建数据<br/>
 linspace可以自动的等距创建数据，numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)如果retstep为true的话返回的不仅仅是array
 还要返回step([],)<br/>
@@ -88,4 +88,28 @@ array([[ 0.,  1.,  0.],
 使用numpy.linalg.inv(a)就可以求出逆矩阵，逆矩阵与原矩阵满足
 dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])也就是相乘等于单位矩阵
 
+8:zeros函数构建矩阵
+numpy.zeros(shape, dtype=float, order='C')
+shape是元组（m,n）分别代表行和列
+dtypr不解释，order可以忽略，官网上讲的是Whether to store multidimensional data in C- or Fortran-contiguous (row- or column-wise) order in memory，意思就是说在内存中是优先储存行还是列，C是前者。
+
+9:切片以及迭代
+单维度上面可以进行切片，比如说:
+import numpy as np
+a=np.array([[1,2,3],[2,3,4],[3,4,5]])
+因为a是2维的，所以如果想要得到2行2列的数3，可以使用a[1][1],也可以使用a[1,1],在numpy里面可以使用a[1,1]的形式进行索引，逗号分隔的就是维度。也可以使
+用a[(1,1)]的形式，里面使用元组。如果使用a[1:2]那么得到的就是[2,3,4],这就是numpy的切片，在某个维度上切片，语法和python切片一致。此时由于省略了其他
+维度的信息，numpy会默认的添加成a[1:2,:]的形式，也就是其他为全取，也可以使用...来代替其他维度的信息，也就是说a[1:2,...]结果相同。numpy的array支持for in 语法，迭代的是每一行（如果是二维的），那么如果是三维的，比如说
+d=np.array([[[1,2],[3,4]],[[5,6],[7,8]]])
+for row in d:
+  print row
+结果是
+[[1 2]
+ [3 4]]
+[[5 6]
+ [7 8]]
+ 也就是说不管多少维，一次for in 就是最外层那一维的一行。如果想得到所有元素，最里层的每个元素，就是1,2,3这些，那么需要使用array的flat属性：
+ for element in d.flat:
+  print element
+ 结果是1,2,3,4,5,6,7,8，也就是说他会不断地迭代知道找到里面的元素，不管存在多少维。
 
