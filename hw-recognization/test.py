@@ -85,4 +85,5 @@ def classify0(inx,dataSet,labels,k):
 if __name__=="__main__":
     #group,labels=KNN.createDateSet()
     #print classify0([0,0],group,labels,3)
+    
     handwritingClassTest()
