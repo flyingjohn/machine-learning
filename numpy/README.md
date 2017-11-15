@@ -112,4 +112,30 @@ for row in d:</br>
  for element in d.flat:</br>
   print element</br>
  结果是1,2,3,4,5,6,7,8，也就是说他会不断地迭代知道找到里面的元素，不管存在多少维。</br>
+ 
+ 10.产生随机数组
+ 使用np.random模块里面的函数可以产生随机数以及根据某些分布产生数组。官网https://docs.scipy.org/doc/numpy/reference/routines.random.html
+ 可以使用np.random.rand(d1,d2,...,dn)产生随机数组，输入不是元组，如果需要输入是元组，那么使用np.random.random或者np.random.random_sample,
+np.random.rand(3,2)
+array([[ 0.14022471,  0.96360618],  #random
+       [ 0.37601032,  0.25528411],  #random
+       [ 0.49313049,  0.94909878]]) #random
+产生的是均匀分布在[0,1)  ]的均匀分布。
+np.random.random和random_sample参数是元组，产生的连续均匀分布在[0,0,1.0)  ]的数组。
+根据分布产生数组类似，
+>>>mu, sigma = 0, 0.1 # mean and standard deviation
+>>> s = np.random.normal(mu, sigma, 1000)
+s产生的就是服从正态分布的数组
 
+11.产生矩阵
+前面所有产生矩阵的函数，比如说eye,one,ones,zero,zeros,array,random.rand等都产生的是array,也就是数组，不是矩阵，矩阵只能是二维的，矩阵可以
+使用*,** 等运算，数组也可以使用这些运算,只是意义不一样，结果也可能不一样。只有二维的数组可以通过matrix和mat产生相应的矩阵，mat=matrix(data,copy=False).
+a=np.mat('4 3; 2 1')
+c=np.array([[4, 3], [2, 1]])
+print(a**2)
+# [[22 15]
+#  [10  7]]
+print(c**2)
+# [[16  9]
+#  [ 4  1]]
+可以查看http://blog.csdn.net/vincentlipan/article/details/20717163 ，只不过里面说矩阵只能dot进行乘法运算是错误的，也可以使用*.
