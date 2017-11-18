@@ -129,13 +129,23 @@ s产生的就是服从正态分布的数组
 
 11.产生矩阵
 前面所有产生矩阵的函数，比如说eye,one,ones,zero,zeros,array,random.rand等都产生的是array,也就是数组，不是矩阵，矩阵只能是二维的，矩阵可以
-使用*,** 等运算，数组也可以使用这些运算,只是意义不一样，结果也可能不一样。只有二维的数组可以通过matrix和mat产生相应的矩阵，mat=matrix(data,copy=False).
-a=np.mat('4 3; 2 1')
-c=np.array([[4, 3], [2, 1]])
-print(a**2)
-[[22 15]
-[10  7]]
-print(c**2)
-[[16  9]
-[ 4  1]]
-可以查看http://blog.csdn.net/vincentlipan/article/details/20717163 ，只不过里面说矩阵只能dot进行乘法运算是错误的，也可以使用*.
+使用*,** 等运算，数组也可以使用这些运算,只是意义不一样，结果也可能不一样。只有二维的数组可以通过matrix和mat产生相应的矩阵，</br>
+mat=matrix(data,copy=False)</br>
+a=np.mat('4 3; 2 1')</br>
+c=np.array([[4, 3], [2, 1]])</br>
+print(a**2)</br>
+[[22 15]</br>
+[10  7]]</br>
+print(c**2)</br>
+[[16  9]</br>
+[ 4  1]]</br>
+可以查看http://blog.csdn.net/vincentlipan/article/details/20717163 ，只不过里面说矩阵只能dot进行乘法运算是错误的，也可以使用*.</br>
+
+12.数组遍历
+numpy里面ndarray(也就是array)存在一个十分便利的遍历方式,比如说向比较数组里面元素是否>0.5:
+>>>b=numpy.random.random(3,3)
+>>>b>0.5
+会返回这样的矩阵
+[[FALSE,TRUE,FALSE],[...],[...]]之类的
+让里面所有的大于0.5的数赋值为1，那么
+b[b>0.5]=1
