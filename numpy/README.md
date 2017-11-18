@@ -123,8 +123,8 @@ array([[ 0.14022471,  0.96360618],  #random
 产生的是均匀分布在[0,1)  ]的均匀分布。
 np.random.random和random_sample参数是元组，产生的连续均匀分布在[0,0,1.0)  ]的数组。
 根据分布产生数组类似，
->>>mu, sigma = 0, 0.1 # mean and standard deviation
->>> s = np.random.normal(mu, sigma, 1000)
+python:mu, sigma = 0, 0.1 # mean and standard deviation
+python:s = np.random.normal(mu, sigma, 1000)
 s产生的就是服从正态分布的数组
 
 11.产生矩阵
@@ -142,10 +142,10 @@ print(c**2)</br>
 可以查看http://blog.csdn.net/vincentlipan/article/details/20717163 ，只不过里面说矩阵只能dot进行乘法运算是错误的，也可以使用*.</br>
 
 12.数组遍历
-numpy里面ndarray(也就是array)存在一个十分便利的遍历方式,比如说向比较数组里面元素是否>0.5:
->>>b=numpy.random.random(3,3)
->>>b>0.5
-会返回这样的矩阵
-[[FALSE,TRUE,FALSE],[...],[...]]之类的
-让里面所有的大于0.5的数赋值为1，那么
-b[b>0.5]=1
+numpy里面ndarray(也就是array)存在一个十分便利的遍历方式,比如说向比较数组里面元素是否>0.5:</br>
+python:b=numpy.random.random(3,3)</br>
+python:b>0.5</br>
+会返回这样的矩阵</br>
+[[FALSE,TRUE,FALSE],[...],[...]]之类的</br>
+让里面所有的大于0.5的数赋值为1，那么</br>
+b[b>0.5]=1</br>
