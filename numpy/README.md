@@ -157,3 +157,21 @@ arr x 2=[2,4,6,8]</br>
 1/(1+np.exp(arr))= array([ 0.11920292,  0.04742587,  0.01798621,  0.00669285])</br> 
 也就是说相当于numpy的array数据类型存在一个内建的迭代器，在每次运算的时候，会自动的使用迭代器来对每一个元素进行运算。
 
+14.np.asarray(a, dtype=None, order=None)方法
+Parameters:	
+  a : array_like Input data, in any form that can be converted to an array. This includes lists, lists of tuples, tuples, tuples of tuples, tuples of lists and ndarrays.
+  dtype : data-type, optional 
+    By default, the data-type is inferred from the input data.
+  order : {‘C’, ‘F’}, optional 
+  Whether to use row-major (C-style) or column-major (Fortran-style) memory representation. Defaults to ‘C’.
+Returns:	
+  out : ndarray
+  Array interpretation of a. No copy is performed if the input is already an ndarray. If a is a subclass of ndarray, a base class ndarray is returned.
+  主要作用是将其他类型的数据转化为ndarray类型，也用于类型转换。
+  a = np.array([1, 2], dtype=np.float32)
+  np.asarray(a, dtype=np.float32) is a
+  True
+  np.asarray(a, dtype=np.float64) is a
+  False
+  用于类型转换是相当于tensorflow.cast
+
