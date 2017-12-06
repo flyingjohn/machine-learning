@@ -175,3 +175,15 @@ Returns:
   False
   用于类型转换是相当于tensorflow.cast
 
+15.np.argmax(a, axis=None, out=None)
+ a = np.arange(6).reshape(2,3)
+ print a
+ array([[0, 1, 2],
+       [3, 4, 5]])
+ np.argmax(a)
+ 5
+ np.argmax(a, axis=0)
+array([1, 1, 1])
+ np.argmax(a, axis=1)
+array([2, 2])
+返回的是下标，axis=0代表最里面的元素位置比较，axis=2代表代数第二维之内比较。
